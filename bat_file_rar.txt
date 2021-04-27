@@ -1,0 +1,9 @@
+@echo off
+md Screenshots_%date%
+set /p ext="Your extension please: "
+move *.%ext% Screenshots_%date%
+cd Screenshots_%date%
+for %%a in (*.%ext%) do (@echo %%~na >> d:\screenshots.found)
+cd ..
+"c:\program files\winrar\rar.exe" a -df "Screenshots_%date%.rar" "Screenshots_%date%"
+pause
